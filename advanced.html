@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///C:/Users/HP/OneDrive/Desktop/handcript.html/cla.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <style>
+            #blinkingDiv {
+                height: max-content;
+                width: 400px;
+                background-color:black;
+                transition: background-color 3s;
+                margin:auto;
+            }
+            fieldset {
+                border: 2px solid brown;
+                width:max-content;
+                height:auto;
+                margin: auto;
+                text-align: center;
+                background-color:bisque;
+                margin-top: 50px;
+            }
+            input {
+                width: 30px;
+                height: 30px;
+                margin: 5px;
+                border: brown solid 0.5px;
+                background-color:burlywood;
+                color: black;
+                font-weight: bold;
+            }
+            #in1 {
+                width: 160px;
+                background-color: white;
+                text-align:center;
+                color: black;
+                font-weight: bold;
+            }
+            #clear {
+                width: 74px;
+                background-color: white;
+                font-weight: bold;
+                font-family: monospace;
+                color: black;
+            }
+            h2 {
+                font-family: monospace;
+                text-decoration:dotted;
+                font-style: italic;
+                background: linear-gradient(to right, brown, black);
+                color: white;
+            }
+            #sqrt {
+                font-size: 10px;
+            }
+            .scroll-container {
+                width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+                position: relative;
+            }
+            .scroll-background {
+                background: linear-gradient(to right, red, black);
+            }
+            .scroll-text {
+                color: white;
+                font-family: monospace;
+                font-style: italic;
+                display: inline-block;
+                animation: scroll 4s linear infinite, blink 1s linear infinite;
+            }
+            @keyframes scroll {
+                0% {transform:translateX(100%);}
+                100% {transform:translateX(-100%);}
+            }
+            @keyframes blink {
+                0%{color:  red;}
+                50%{color: white;}
+                100%{color: black;}
+                50%{color: gold;}
+            }
+        </style>
+    </head>
+    <body>
+        <div id="blinkingDiv" style="background-color: goldenrod;">
+        <fieldset>
+        <form name="calc">
+            <div class="scroll-container">
+            <div class="scroll-background">
+                <span class="scroll-text">IT IS MY FIRST CALCULATOR PROGRAM</span>
+            </div>
+            </div>
+            <h2>Simple Calculator</h2>
+            <input name="val" id="in1" type="text"><br>
+            <input type="button" value="1" onclick="calc.val.value += '1'">
+            <input type="button" value="2" onclick="calc.val.value += '2'">
+            <input type="button" value="3" onclick="calc.val.value += '3'">
+            <input type="button" value="+" onclick="calc.val.value += '+'"><br>
+            <input type="button" value="4" onclick="calc.val.value += '4'">
+            <input type="button" value="5" onclick="calc.val.value += '5'">
+            <input type="button" value="6" onclick="calc.val.value += '6'">
+            <input type="button" value="-" onclick="calc.val.value += '-'"><br>
+            <input type="button" value="7" onclick="calc.val.value += '7'">
+            <input type="button" value="8" onclick="calc.val.value += '8'">
+            <input type="button" value="9" onclick="calc.val.value += '9'">
+            <input type="button" value="*" onclick="calc.val.value += '*'"><br>
+            <input type="button" value="0" onclick="calc.val.value += '0'">
+            <input type="button" value="Sqrt" id="sqrt" onclick="calc.val.value = Math.sqrt(calc.val.value)">
+            <input type="button" value="." onclick="calc.val.value += '.'">
+            <input type="button" value="/" onclick="calc.val.value += '/'"><br>
+            <input type="button" id="clear" value="Clear All" onclick="calc.val.value = ''">
+            <input type="button" id="clear" value="=" onclick="calc.val.value =  eval(calc.val.value)">
+        </form>
+        </fieldset>
+        </div>
+        <script>
+            function blinkBackground() {
+                var element = document.getElementById("blinkingDiv");
+                if (element.style.backgroundColor === "black") {
+                    element.style.backgroundColor = "goldenrod";
+                } else if(element.style.backgroundColor === "goldenrod") {
+                    element.style.backgroundColor = "red";
+                } else {
+                    element.style.backgroundColor = "black";
+                }
+            }
+            setInterval(blinkBackground, 2000);
+        </script>
+    
+</body></html>
